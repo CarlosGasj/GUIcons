@@ -1,5 +1,6 @@
 import flask
 from flask import render_template, Flask
+import GUI
 
 app = Flask(__name__)
 
@@ -10,4 +11,4 @@ def home():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0').
+    app.run(debug=True, host='0.0.0.0')
