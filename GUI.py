@@ -1,4 +1,5 @@
 import json
+import sys 
 import requests
 requests.packages.urllib3.disable_warnings()
 
@@ -135,4 +136,12 @@ def show_ospf():
         print(f"Error al obtener la configuración OSPF")
 
 if __name__ == '__main__':
-    menu()
+    if len(sys.argv) > 1:
+        function_name = sys.argv[1]
+        function = globals().get(function_name)
+        if function:
+            function(*sys.argv[2:])
+        else:
+            print(f"Function {function_name} not found")
+    else:
+        menu()
